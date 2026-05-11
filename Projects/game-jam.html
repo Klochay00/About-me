@@ -34,7 +34,7 @@ body{
 }
 
 .container{
-  width:min(1100px,92%);
+  width:min(1200px,92%);
   margin:0 auto;
 }
 
@@ -44,6 +44,11 @@ header{
   align-items:center;
   padding:28px 0;
   border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px);
+  background:rgba(11,12,16,0.85);
+  z-index:100;
 }
 
 .back,
@@ -729,11 +734,11 @@ footer{
   <div class="gallery-grid">
 
     <div class="image-wrapper">
-      <img src="../assets/jam/idea-board.png" alt="Idea board" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/idea-board.png" alt="Idea board" onclick="openLightbox(this.src)">
     </div>
 
     <div class="image-wrapper">
-      <img src="../assets/jam/reference-board.png" alt="Reference board" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/reference-board.png" alt="Reference board" onclick="openLightbox(this.src)">
     </div>
 
   </div>
@@ -748,11 +753,11 @@ footer{
   <div class="gallery-grid">
 
     <div class="image-wrapper">
-      <img src="../assets/jam/concept-blockout.png" alt="Concept blockout" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/concept-blockout.png" alt="Concept blockout" onclick="openLightbox(this.src)">
     </div>
 
     <div class="image-wrapper">
-      <img src="../assets/jam/final-blockout.png" alt="Final blockout" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/final-blockout.png" alt="Final blockout" onclick="openLightbox(this.src)">
     </div>
 
   </div>
@@ -767,27 +772,27 @@ footer{
   <div class="gallery-grid">
     
     <div class="image-wrapper">
-      <img src="../assets/jam/unity1.png" alt="Blocking 1" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/unity1.png" alt="Blocking 1" onclick="openLightbox(this.src)">
     </div>
 
     <div class="image-wrapper">
-      <img src="../assets/jam/unity2.png" alt="Blocking 2" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/unity2.png" alt="Blocking 2" onclick="openLightbox(this.src)">
     </div>
 
     <div class="image-wrapper">
-      <img src="../assets/jam/game1.png" alt="Gameplay 1" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/game1.png" alt="Gameplay 1" onclick="openLightbox(this.src)">
     </div>
 
     <div class="image-wrapper">
-      <img src="../assets/jam/game2.png" alt="Gameplay 2" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/game2.png" alt="Gameplay 2" onclick="openLightbox(this.src)">
     </div>
 
     <div class="image-wrapper">
-      <img src="../assets/jam/game3.png" alt="Gameplay 3" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/game3.png" alt="Gameplay 3" onclick="openLightbox(this.src)">
     </div>
 
     <div class="image-wrapper">
-      <img src="../assets/jam/game4.png" alt="Gameplay 4" onclick="openLightbox(this.src)">
+      <img src="..Assets/Jam/game4.png" alt="Gameplay 4" onclick="openLightbox(this.src)">
     </div>
     
 
@@ -795,6 +800,15 @@ footer{
 
 </section>
 
+<!-- LIGHTBOX -->
+
+<div id="lightbox" onclick="closeLightbox()">
+
+  <span class="lightbox-close">×</span>
+
+  <img id="lightbox-img">
+
+</div>
 
 <!-- GAMEPLAY VIDEO -->
 <section>
@@ -808,7 +822,7 @@ footer{
   <div class="video-wrapper">
 
     <video controls autoplay muted loop playsinline>
-      <source src="../assets/jam/compressed-jam.mp4" type="video/mp4">
+      <source src="..Assets/Jam/compressed-jam.mp4" type="video/mp4">
     </video>
 
   </div>
@@ -885,7 +899,7 @@ footer{
 
     <div class="video-wrapper" style="margin-top:40px;">
       <video controls autoplay muted loop playsinline>
-        <source src="../assets/jam/final-jam.mp4" type="video/mp4">
+        <source src="..Assets/Jam/final-jam.mp4" type="video/mp4">
       </video>
     </div>
 
@@ -914,13 +928,30 @@ function setLang(lang){
 
 <!-- LIGHTBOX -->
 
-<div id="lightbox" onclick="closeLightbox()">
+<script>
 
-  <span class="lightbox-close">×</span>
+function openLightbox(src){
 
-  <img id="lightbox-img">
+  const lightbox =
+    document.getElementById('lightbox');
 
-</div>
+  const img =
+    document.getElementById('lightbox-img');
+
+  img.src = src;
+
+  lightbox.classList.add('active');
+}
+
+
+function closeLightbox(){
+
+  document
+    .getElementById('lightbox')
+    .classList.remove('active');
+}
+
+</script>
 
 </body>
 </html>
