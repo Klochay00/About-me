@@ -1,0 +1,45 @@
+# 1. Зависимости (не нужно хранить, они скачиваются через npm/yarn/composer)
+node_modules/
+jspm_packages/
+vendor/
+
+# 2. Результаты сборки и временные файлы
+dist/
+build/
+.parcel-cache/
+.next/
+.nuxt/
+/temp/
+
+# 3. Секреты и конфиги (ВАЖНО!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# 4. Файлы IDE и редакторов (VS Code, WebStorm)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 5. ОС и системные файлы
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 6. Логи
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 7. Базы данных (если они локальные)
+*.sqlite

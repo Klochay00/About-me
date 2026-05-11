@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Siberian Game Jam — Case Study</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0c10;
+  --panel:#14161f;
+  --panel2:#181b26;
+  --text:#f5f6f8;
+  --muted:#b8bbc7;
+  --line:rgba(255,255,255,0.06);
+  --accent:#ff8a3d;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.85;
+}
+
+.container{
+  width:min(1100px,92%);
+  margin:0 auto;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:28px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.back,
+.lang button{
+  color:var(--text);
+  text-decoration:none;
+  border:2px solid var(--line);
+  background:transparent;
+  padding:10px 16px;
+  border-radius:12px;
+  transition:0.25s ease;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.back:hover,
+.lang button:hover,
+.card:hover,
+.image-placeholder:hover,
+.quote:hover{
+  border-color:var(--accent);
+  box-shadow:
+    0 0 0 1px rgba(255,138,61,0.12),
+    0 12px 40px rgba(0,0,0,0.32),
+    0 0 40px rgba(255,138,61,0.08);
+}
+
+.lang{
+  display:flex;
+  gap:10px;
+}
+
+.hero{
+  padding:120px 0 110px;
+}
+
+.hero h1{
+  font-size:82px;
+  line-height:0.95;
+  letter-spacing:-3px;
+  margin-bottom:24px;
+}
+
+.role{
+  color:var(--accent);
+  margin-bottom:24px;
+  font-size:18px;
+}
+
+.hero-text{
+  max-width:920px;
+  color:var(--muted);
+  font-size:22px;
+  line-height:1.95;
+  font-weight:300;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:48px;
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:28px;
+  transition:0.28s ease;
+}
+
+.card-title{
+  color:var(--muted);
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+section{
+  padding:80px 0;
+  border-top:1px solid rgba(255,255,255,0.04);
+}
+
+.section-title{
+  text-align:center;
+  font-size:52px;
+  letter-spacing:-2px;
+  margin-bottom:70px;
+}
+
+.text{
+  max-width:900px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:18px;
+}
+
+.goals-grid,
+.contribution-grid,
+.gallery-grid,
+.feedback-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.goal,
+.contribution,
+.quote{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:30px;
+  transition:0.28s ease;
+}
+
+.goal h3,
+.contribution h3{
+  margin-bottom:16px;
+}
+
+.process{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  justify-content:center;
+}
+
+/* STEP CARD */
+
+.step{
+  position:relative;
+
+  padding:20px 28px;
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(24,27,38,0.95),
+      rgba(17,19,28,0.98)
+    );
+
+  border:1px solid rgba(255,255,255,0.06);
+
+  color:rgba(245,246,248,0.92);
+
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:-0.2px;
+
+  overflow:hidden;
+
+  backdrop-filter:blur(12px);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  cursor:default;
+}
+
+
+/* SUBTLE TOP LIGHT */
+
+.step::after{
+  content:'';
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      transparent 35%
+    );
+
+  pointer-events:none;
+}
+
+
+/* ANIMATED ORANGE SCANLINE */
+
+.step::before{
+  content:'';
+
+  position:absolute;
+
+  top:0;
+  left:-140%;
+
+  width:120%;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,138,61,0.95),
+      rgba(255,180,120,0.85),
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(255,138,61,0.35);
+
+  animation:scanline 6s linear infinite;
+}
+
+
+/* STAGGERED FLOW */
+
+.step:nth-child(1)::before{
+  animation-delay:0s;
+}
+
+.step:nth-child(2)::before{
+  animation-delay:0.45s;
+}
+
+.step:nth-child(3)::before{
+  animation-delay:0.9s;
+}
+
+.step:nth-child(4)::before{
+  animation-delay:1.35s;
+}
+
+.step:nth-child(5)::before{
+  animation-delay:1.8s;
+}
+
+.step:nth-child(6)::before{
+  animation-delay:2.25s;
+}
+
+.step:nth-child(7)::before{
+  animation-delay:2.7s;
+}
+
+
+/* HOVER */
+
+.step:hover{
+
+  transform:
+    translateY(-4px)
+    scale(1.015);
+
+  border-color:
+    rgba(255,138,61,0.28);
+
+  box-shadow:
+    0 0 0 1px rgba(255,138,61,0.08),
+    0 14px 36px rgba(0,0,0,0.34),
+    0 0 42px rgba(255,138,61,0.06);
+}
+
+
+/* SCANLINE ANIMATION */
+
+@keyframes scanline{
+
+  0%{
+    left:-140%;
+    opacity:0;
+  }
+
+  8%{
+    opacity:1;
+  }
+
+  92%{
+    opacity:1;
+  }
+
+  100%{
+    left:140%;
+    opacity:0;
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .process{
+    gap:14px;
+  }
+
+  .step{
+    width:100%;
+    text-align:center;
+  }
+
+}
+
+.image-placeholder{
+  background:var(--panel2);
+  border:1px dashed rgba(255,255,255,0.12);
+  border-radius:24px;
+  min-height:320px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--muted);
+  padding:24px;
+  transition:0.28s ease;
+}
+
+.large-image{
+  min-height:420px;
+}
+
+.quote{
+  color:var(--muted);
+  font-style:italic;
+}
+
+.quote-author{
+  margin-top:18px;
+  color:var(--text);
+  font-style:normal;
+}
+
+.final-block{
+  background:linear-gradient(180deg,var(--panel),#1a1d2a);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:30px;
+  padding:60px;
+}
+
+.final-block h3{
+  font-size:36px;
+  margin-bottom:24px;
+}
+
+footer{
+  padding:80px 0 50px;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,0.04);
+}
+
+@media(max-width:900px){
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .info-grid,
+  .goals-grid,
+  .contribution-grid,
+  .gallery-grid,
+  .feedback-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-text{
+    font-size:18px;
+  }
+}
+.subsection-title{
+  font-size:24px;
+  margin:60px 0 26px;
+  text-align:center;
+  color:var(--text);
+  letter-spacing:-0.5px;
+}
+
+.video-wrapper{
+  border-radius:28px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.06);
+  margin-top:28px;
+}
+
+.video-wrapper video{
+  width:100%;
+  display:block;
+}
+
+.image-wrapper{
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+.image-wrapper img{
+  width:100%;
+  display:block;
+}
+
+/* CLICKABLE IMAGES */
+
+.image-wrapper{
+  cursor:pointer;
+}
+
+
+/* LIGHTBOX */
+
+#lightbox{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(5,6,10,0.92);
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+
+  z-index:9999;
+
+  backdrop-filter:blur(10px);
+}
+
+
+/* ACTIVE STATE */
+
+#lightbox.active{
+  opacity:1;
+  visibility:visible;
+}
+
+
+/* IMAGE */
+
+#lightbox img{
+
+  max-width:88%;
+  max-height:88%;
+
+  border-radius:24px;
+
+  box-shadow:
+    0 20px 80px rgba(0,0,0,0.45),
+    0 0 80px rgba(255,138,61,0.06);
+
+  transform:scale(0.92);
+
+  transition:transform 0.35s ease;
+}
+
+
+/* ZOOM IN */
+
+#lightbox.active img{
+  transform:scale(1);
+}
+
+
+/* CLOSE BUTTON */
+
+.lightbox-close{
+
+  position:absolute;
+
+  top:32px;
+  right:42px;
+
+  font-size:42px;
+
+  color:white;
+
+  opacity:0.75;
+
+  cursor:pointer;
+
+  transition:0.25s ease;
+}
+
+.lightbox-close:hover{
+  opacity:1;
+  color:var(--accent);
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+<header>
+  <a href="../index.html" class="back"
+  data-en="← Back to Portfolio"
+  data-ru="← Назад к портфолио">
+  ← Back to Portfolio
+  </a>
+
+  <div class="lang">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ru')">RU</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="role"
+  data-en="Game Designer / Level Designer"
+  data-ru="Game Designer / Level Designer">
+  Game Designer / Level Designer
+  </div>
+
+  <h1>Siberian Game Jam 2026</h1>
+
+  <p class="hero-text"
+  data-en="Collaborating with a junior team under strict jam constraints taught me the art of prioritization. Post-jam, I took the initiative to fully implement the intended mechanics and atmospheric details that were initially cut due to time."
+  data-ru="Работа с начинающей командой в условиях джема научила меня приоритизации. Позже я использовала этот опыт, чтобы самостоятельно дореализовать те механики и элементы атмосферы, на которые не хватило времени в ходе самого конкурса.">
+  Collaborating with a junior team under strict jam constraints taught me the art of prioritization. Post-jam, I took the initiative to fully implement the intended mechanics and atmospheric details that were initially cut due to time.
+  </p>
+
+  <div class="info-grid">
+
+    <div class="card">
+      <div class="card-title" data-en="Role" data-ru="Роль">Role</div>
+      <div data-en="Game Design / Level Design" data-ru="Геймдизайн / Левел-дизайн">Game Design / Level Design</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" data-en="Duration" data-ru="Сроки">Duration</div>
+      <div data-en="72 hours" data-ru="72 часа">72 hours</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" data-en="Focus" data-ru="Фокус">Focus</div>
+      <div data-en="Gameplay & Atmosphere" data-ru="Геймплей и атмосфера">Gameplay & Atmosphere</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" data-en="Tools" data-ru="Инструменты">Tools</div>
+      <div>Unity / Blender / Illustrator</div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CHALLENGE -->
+<section>
+
+  <h2 class="section-title"
+  data-en="The Challenge"
+  data-ru="Задача">
+  The Challenge
+  </h2>
+
+  <p class="text"
+  data-en="The project was created during a game jam with limited time and production resources. The main goal was to quickly transform an abstract gameplay concept into a cohesive playable experience with readable mechanics, clear level flow and strong atmosphere."
+  data-ru="Проект создавался в рамках геймджема с ограниченным временем и production-ресурсами. Главной задачей было быстро превратить абстрактную игровую идею в цельный игровой опыт с читаемыми механиками, понятным потоком уровня и выразительной атмосферой.">
+  The project was created during a game jam with limited time and production resources. The main goal was to quickly transform an abstract gameplay concept into a cohesive playable experience with readable mechanics, clear level flow and strong atmosphere.
+  </p>
+
+</section>
+
+<!-- DESIGN GOALS -->
+<section>
+
+  <h2 class="section-title"
+  data-en="Design Goals"
+  data-ru="Цели дизайна">
+  Design Goals
+  </h2>
+
+  <div class="goals-grid">
+
+    <div class="goal">
+      <h3 data-en="Readable Gameplay" data-ru="Читаемый геймплей">Readable Gameplay</h3>
+      <p data-en="Ensure that player interactions and navigation remain understandable even during fast iteration." data-ru="Сделать взаимодействия и навигацию понятными даже в условиях быстрой разработки.">Ensure that player interactions and navigation remain understandable even during fast iteration.</p>
+    </div>
+
+    <div class="goal">
+      <h3 data-en="Atmosphere" data-ru="Атмосфера">Atmosphere</h3>
+      <p data-en="Use lighting, composition and environment design to support the emotional tone of the experience." data-ru="Использовать освещение, композицию и окружение для поддержки эмоционального восприятия игры.">Use lighting, composition and environment design to support the emotional tone of the experience.</p>
+    </div>
+
+    <div class="goal">
+      <h3 data-en="Player Flow" data-ru="Поток игрока">Player Flow</h3>
+      <p data-en="Build level structure around intuitive movement and visual guidance." data-ru="Построить структуру уровня вокруг интуитивного движения и визуального направления игрока.">Build level structure around intuitive movement and visual guidance.</p>
+    </div>
+
+    <div class="goal">
+      <h3 data-en="Rapid Production" data-ru="Быстрое производство">Rapid Production</h3>
+      <p data-en="Create reusable assets and production-friendly workflow under strict deadlines." data-ru="Создать production-friendly пайплайн и переиспользуемые ассеты в условиях жёстких дедлайнов.">Create reusable assets and production-friendly workflow under strict deadlines.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTRIBUTION -->
+<section>
+
+  <h2 class="section-title"
+  data-en="My Contribution"
+  data-ru="Мой вклад">
+  My Contribution
+  </h2>
+
+  <div class="contribution-grid">
+
+    <div class="contribution">
+      <h3 data-en="Game Design" data-ru="Геймдизайн">Game Design</h3>
+      <p data-en="Created the gameplay concept, designed core mechanics and prepared the initial GDD." data-ru="Разработала концепт игры, основные механики и подготовила первоначальный GDD.">Created the gameplay concept, designed core mechanics and prepared the initial GDD.</p>
+    </div>
+
+    <div class="contribution">
+      <h3 data-en="Level Design" data-ru="Левел-дизайн">Level Design</h3>
+      <p data-en="Designed the first level layout in Illustrator and later implemented it directly in Unity." data-ru="Создала первую схему уровня в Illustrator и позже реализовала её в Unity.">Designed the first level layout in Illustrator and later implemented it directly in Unity.</p>
+    </div>
+
+    <div class="contribution">
+      <h3 data-en="3D Production" data-ru="3D Production">3D Production</h3>
+      <p data-en="Modeled environment assets and interactive prefabs in Blender." data-ru="Замоделила окружение и интерактивные префабы в Blender.">Modeled environment assets and interactive prefabs in Blender.</p>
+    </div>
+
+    <div class="contribution">
+      <h3 data-en="Lighting & Atmosphere" data-ru="Освещение и атмосфера">Lighting & Atmosphere</h3>
+      <p data-en="Configured lighting and visual composition to strengthen gameplay readability and atmosphere." data-ru="Настроила освещение и визуальную композицию для усиления атмосферы и читаемости.">Configured lighting and visual composition to strengthen gameplay readability and atmosphere.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROCESS -->
+<section>
+
+  <h2 class="section-title"
+  data-en="Iteration Process"
+  data-ru="Процесс итерации">
+  Iteration Process
+  </h2>
+
+  <div class="process">
+    <div class="step">Concept</div>
+    <div class="step">GDD</div>
+    <div class="step">Level Sketch</div>
+    <div class="step">Unity Blockout</div>
+    <div class="step">3D Production</div>
+    <div class="step">Lighting Pass</div>
+    <div class="step">Playtesting</div>
+  </div>
+
+</section>
+
+<!-- VISUAL DEVELOPMENT -->
+<section>
+
+  <h2 class="section-title"
+  data-en="Visual Development"
+  data-ru="Визуальная разработка">
+  Visual Development
+  </h2>
+
+  <!-- IDEATION -->
+  <h3 class="subsection-title"
+  data-en="Pre-production / Ideation"
+  data-ru="Препродакшн / Идеи">
+  Pre-production / Ideation
+  </h3>
+
+  <div class="gallery-grid">
+
+    <div class="image-wrapper">
+      <img src="../assets/jam/доска_идеи.png" alt="Idea board" onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../assets/jam/доска_референсы_список_моделей.png" alt="Reference board" onclick="openLightbox(this.src)">
+    </div>
+
+  </div>
+
+  <!-- LEVEL DESIGN -->
+  <h3 class="subsection-title"
+  data-en="Level Design (Illustrator)"
+  data-ru="Левел-дизайн (Illustrator)">
+  Level Design (Illustrator)
+  </h3>
+
+  <div class="gallery-grid">
+
+    <div class="image-wrapper">
+      <img src="../assets/jam/концепт_блокинг_обозначения_итог.png" alt="Concept blockout" onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../assets/jam/блокинг_итог.png" alt="Final blockout" onclick="openLightbox(this.src)">
+    </div>
+
+  </div>
+
+  <!-- UNITY IMPLEMENTATION -->
+  <h3 class="subsection-title"
+  data-en="In-Engine Implementation (Unity)"
+  data-ru="Реализация в Unity">
+  In-Engine Implementation (Unity)
+  </h3>
+
+  <div class="gallery-grid">
+    
+    <div class="image-wrapper">
+      <img src="../assets/jam/unity_1.png" alt="Blocking 1" onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../assets/jam/unity_2.png" alt="Blocking 2" onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../assets/jam/game_1.png" alt="Gameplay 1" onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../assets/jam/game_2.png" alt="Gameplay 2" onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../assets/jam/game_3.png" alt="Gameplay 3" onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../assets/jam/game_4.png" alt="Gameplay 4" onclick="openLightbox(this.src)">
+    </div>
+    
+
+  </div>
+
+</section>
+
+
+<!-- GAMEPLAY VIDEO -->
+<section>
+
+  <h2 class="section-title"
+  data-en="Gameplay Footage"
+  data-ru="Геймплей">
+  Gameplay Footage
+  </h2>
+
+  <div class="video-wrapper">
+
+    <video controls autoplay muted loop playsinline>
+      <source src="../assets/jam/джем.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+  <div style="margin-top:60px;"></div>
+
+  <div class="video-wrapper">
+
+    <video controls autoplay muted loop playsinline>
+      <source src="../assets/jam/доработанная_версия.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+</section>
+
+
+<!-- FEEDBACK -->
+<section>
+
+  <h2 class="section-title"
+  data-en="Playtester Feedback"
+  data-ru="Отзывы игроков">
+  Playtester Feedback
+  </h2>
+
+  <div class="feedback-grid">
+
+    <div class="quote">
+      <p
+      data-en="Strong potential. The project clearly shows a lot of work, even though it still needs polishing and bug fixing."
+      data-ru="Сразу видно, что проделана большая работа. Проекту ещё требуется полировка и исправление багов, но потенциал огромный.">
+      Сразу видно, что проделана большая работа...
+      </p>
+    </div>
+
+    <div class="quote">
+      <p
+      data-en="Atmospheric game with great sound design and transformation mechanics. Each form having unique abilities made gameplay engaging."
+      data-ru="Атмосферная игра с классным звуком и механикой превращений. У каждой формы есть свои способности, что делает геймплей интересным.">
+      Атмосферная игра...
+      </p>
+    </div>
+
+    <div class="quote">
+      <p
+      data-en="Visually strong with great animations and effects. Echo sound on lower floors was especially memorable."
+      data-ru="Сильный визуал, анимации и эффекты. Особенно понравился эффект эха на нижних этажах.">
+      Крутой визуал...
+      </p>
+    </div>
+
+    <div class="quote">
+      <p
+      data-en="Good visuals, but level design clarity and objectives could be improved for better player guidance."
+      data-ru="Хороший визуал, но не хватило ясности в левел-дизайне и целях игрока.">
+      Хороший визуал...
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- POST JAM -->
+<section>
+
+  <div class="final-block">
+
+    <h3
+    data-en="Post-Jam Redesign"
+    data-ru="Пост-джем версия">
+    Post-Jam Redesign
+    </h3>
+
+    <p class="text"
+    data-en="After the jam I continued refining the project to better reflect the original gameplay and level design vision. The updated version focuses on clearer player flow, stronger environmental storytelling and improved gameplay readability."
+    data-ru="После джема я продолжила дорабатывать проект, чтобы лучше раскрыть первоначальную задумку игровых механик и левел-дизайна. Обновлённая версия делает больший акцент на потоке игрока, environmental storytelling и читаемости игрового пространства.">
+    After the jam I continued refining the project to better reflect the original gameplay and level design vision. The updated version focuses on clearer player flow, stronger environmental storytelling and improved gameplay readability.
+    </p>
+
+    <div class="video-wrapper" style="margin-top:40px;">
+      <video controls autoplay muted loop playsinline>
+        <source src="../assets/jam/доработанная_версия.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<footer>
+  © 2026 Maria Klochay — Game Design Portfolio
+</footer>
+
+</div>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const text = el.getAttribute(`data-${lang}`);
+    if(text){
+      el.innerText = text;
+    }
+  });
+}
+</script>
+
+<!-- LIGHTBOX -->
+
+<div id="lightbox" onclick="closeLightbox()">
+
+  <span class="lightbox-close">×</span>
+
+  <img id="lightbox-img">
+
+</div>
+
+</body>
+</html>
