@@ -34,7 +34,7 @@ body{
 }
 
 .container{
-  width:min(1100px,92%);
+  width:min(1200px,92%);
   margin:0 auto;
 }
 
@@ -44,6 +44,11 @@ header{
   align-items:center;
   padding:28px 0;
   border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px);
+  background:rgba(11,12,16,0.85);
+  z-index:100;
 }
 
 .back,
@@ -795,6 +800,15 @@ footer{
 
 </section>
 
+<!-- LIGHTBOX -->
+
+<div id="lightbox" onclick="closeLightbox()">
+
+  <span class="lightbox-close">×</span>
+
+  <img id="lightbox-img">
+
+</div>
 
 <!-- GAMEPLAY VIDEO -->
 <section>
@@ -914,13 +928,30 @@ function setLang(lang){
 
 <!-- LIGHTBOX -->
 
-<div id="lightbox" onclick="closeLightbox()">
+<script>
 
-  <span class="lightbox-close">×</span>
+function openLightbox(src){
 
-  <img id="lightbox-img">
+  const lightbox =
+    document.getElementById('lightbox');
 
-</div>
+  const img =
+    document.getElementById('lightbox-img');
+
+  img.src = src;
+
+  lightbox.classList.add('active');
+}
+
+
+function closeLightbox(){
+
+  document
+    .getElementById('lightbox')
+    .classList.remove('active');
+}
+
+</script>
 
 </body>
 </html>
