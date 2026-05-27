@@ -1,0 +1,53 @@
+nav a,
+.lang button,
+.cta{
+  color:var(--text);
+  text-decoration:none;
+  border:2px solid var(--line);
+  background:transparent;
+  padding:10px 16px;
+  border-radius:12px;
+  transition:0.25s ease;
+  cursor:pointer;
+  font-size:18px;
+}
+
+nav a:hover,
+.lang button:hover,
+.cta:hover,
+.card:hover,
+.skill:hover,
+.edu:hover,
+.exp:hover,
+.project:hover{
+  border-color:rgba(255,138,61,0.6);
+  box-shadow:
+    0 0 0 1px rgba(255,138,61,0.12),
+    0 12px 40px rgba(0,0,0,0.34),
+    0 0 40px rgba(255,138,61,0.08);
+  transform:translateY(-4px);
+}
+
+nav a:hover,
+.lang button:hover,
+.cta:hover{
+  color:var(--accent);
+  transform:translateY(-2px);
+}
+
+.project-link{
+  margin-top:auto;
+
+  padding-top:24px;
+
+  font-size:14px;
+  color:var(--accent);
+
+  opacity:0.85;
+  transition:0.25s ease;
+}
+
+.project:hover .project-link{
+  transform:translateX(4px);
+  opacity:1;
+}

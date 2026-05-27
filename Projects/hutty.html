@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Hutty — Feed the Cubs</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../CSS/hutty-style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<header>
+
+  <a href="../index.html"
+     class="back-button"
+     data-en="← Back to Portfolio"
+     data-ru="← Назад к портфолио">
+     ← Back to Portfolio
+  </a>
+
+  <div class="lang">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ru')">RU</button>
+  </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hutty-hero">
+
+  <div class="hero-content">
+
+    <div class="hero-left">
+
+      <div class="project-type"
+           data-en="Indie Mobile Game"
+           data-ru="Инди мобильная игра">
+           Indie Mobile Game
+      </div>
+
+      <h1>Hutty</h1>
+
+      <div class="tagline"
+           data-en="Feed the Cubs"
+           data-ru="Накорми детёнышей">
+           Feed the Cubs
+      </div>
+
+      <p class="hero-description"
+         data-en="A cozy mobile game about caring for hungry cubs, exploring light progression systems and building emotional attachment through atmosphere, interaction and visual identity."
+         data-ru="Уютная мобильная игра о заботе отца о голодных детёнышах, исследующая системы прогрессии, эмоциональную привязанность и атмосферный визуальный стиль.">
+
+         A cozy mobile game about caring for hungry cubs, exploring light progression systems and building emotional attachment through atmosphere, interaction and visual identity.
+
+      </p>
+
+    </div>
+
+    <!-- HERO IMAGE -->
+
+    <div class="hero-right">
+
+      
+      <div class="hero-image">
+
+        <img src="../Assets/Hutty/main-menu.png"
+             alt="Hutty Main Menu">
+
+      </div>
+
+      <div class="hero-actions">
+
+        <a href="https://drive.google.com/file/d/1yz38TMR7JAfXOJk8KRS6IRiGBxupTVqc/view?usp=sharing"
+           target="_blank"
+           class="cta primary"
+           data-en="Play Demo"
+           data-ru="Играть">
+           Play Demo
+        </a>
+
+        <a href="#gameplay"
+           class="cta"
+           data-en="Watch Gameplay"
+           data-ru="Смотреть геймплей">
+           Watch Gameplay
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- INFO -->
+
+<section>
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <div class="card-title" data-en="Role" data-ru="Роль">Role</div>
+      <div data-en="Solo Developer" data-ru="Соло-разработчик">
+        Solo Developer
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title" data-en="Engine" data-ru="Движок">Engine</div>
+      <div data-en="Unity" data-ru="Unity">
+        Unity
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title" data-en="Focus" data-ru="Фокус">Focus</div>
+      <div       
+      data-en="Core Loop / Meta Systems / Difficulty Design"
+      data-ru="Core Loop / Meta-системы / Баланс сложности">
+      Core Loop / Meta Systems / Difficulty Design
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title" data-en="Platform" data-ru="Платформа">Platform</div>
+      <div>Android</div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section>
+
+  <h2 class="section-title"
+      data-en="About the Game"
+      data-ru="Об игре">
+      About the Game
+  </h2>
+
+  <div class="text-block">
+
+    <p
+      data-en="A fast-paced arcade survival game with a dash of cuteness about Hutty — a single father meerkat trying to feed his cubs. Players balance risk and survival by collecting falling eggs while avoiding aggressive predators in increasingly chaotic short-session gameplay."
+      data-ru="Динамичная arcade-survival игра, с каплей милоты, про суриката Хати — отца-одиночку, добывающего еду для своих детёнышей. Игрок балансирует между риском и выживанием: собирает падающие яйца и уклоняется от хищников в постепенно усложняющемся геймплее коротких сессий.">
+      A fast-paced arcade survival game with a dash of cuteness about Hutty — a single father meerkat trying to feed his cubs. Players balance risk and survival by collecting falling eggs while avoiding aggressive predators in increasingly chaotic short-session gameplay.
+
+    </p>
+
+  </div>
+
+</section>
+
+<!-- CORE GAMEPLAY  -->
+<section>
+
+  <h2 class="section-title"
+  data-en="Core Gameplay"
+  data-ru="Core Gameplay">
+  Core Gameplay
+  </h2>
+
+  <div class="gameplay-layout">
+
+    <!-- LEFT -->
+    <div class="gameplay-main">
+
+      <div class="gameplay-highlight">
+
+        <span class="highlight-label"
+        data-en="CORE IDEA"
+        data-ru="ОСНОВНАЯ ИДЕЯ">
+        CORE IDEA
+        </span>
+
+        <h3
+        data-en="Two simultaneous gameplay flows competing for player attention."
+        data-ru="Два игровых потока одновременно конкурируют за внимание игрока.">
+        Two simultaneous gameplay flows competing for player attention.
+        </h3>
+
+      </div>
+
+      <div class="flow-grid">
+
+        <div class="flow-card reward">
+
+          <div class="flow-icon">⬇</div>
+
+          <h4
+          data-en="Reward Flow"
+          data-ru="Поток награды">
+          Reward Flow
+          </h4>
+
+          <p
+          data-en="Falling eggs create risk-reward decisions and push aggressive positioning."
+          data-ru="Падающие яйца создают рискованные решения и вынуждают игрока занимать опасные позиции.">
+          Falling eggs create risk-reward decisions and push aggressive positioning.
+          </p>
+
+        </div>
+
+        <div class="flow-card danger">
+
+          <div class="flow-icon">→</div>
+
+          <h4
+          data-en="Threat Flow"
+          data-ru="Поток угроз">
+          Threat Flow
+          </h4>
+
+          <p
+          data-en="Moving snakes force constant repositioning and reaction management."
+          data-ru="Движущиеся змеи заставляют игрока постоянно менять позицию и управлять вниманием.">
+          Moving snakes force constant repositioning and reaction management.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="gameplay-side">
+
+      <div class="mini-stat">
+        <span>30–90s</span>
+        <p
+        data-en="Average Session"
+        data-ru="Средняя сессия">
+        Average Session
+        </p>
+      </div>
+
+      <div class="mini-stat">
+        <span>&lt;2s</span>
+        <p
+        data-en="Restart Time"
+        data-ru="Время перезапуска">
+        Restart Time
+        </p>
+      </div>
+
+      <div class="mini-stat">
+        <span>2</span>
+        <p
+        data-en="Revive Chances"
+        data-ru="Шанс возрождения">
+        Revive Chances
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- FEATURES -->
+
+<section>
+
+  <h2 class="section-title"
+  data-en="Key Features"
+  data-ru="Ключевые особенности">
+  Key Features
+  </h2>
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <h3
+      data-en="Dual-Axis Gameplay"
+      data-ru="Двухвекторный геймплей">
+      Dual-Axis Gameplay
+      </h3>
+
+      <p
+      data-en="Simultaneous management of vertical rewards and horizontal threats creates constant decision pressure."
+      data-ru="Одновременное управление вертикальными наградами и горизонтальными угрозами создаёт постоянное давление принятия решений.">
+      Simultaneous management of vertical rewards and horizontal threats creates constant decision pressure.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3
+      data-en="Narrative Motivation"
+      data-ru="Narrative-мотивация">
+      Narrative Motivation
+      </h3>
+
+      <p
+      data-en="The player's performance directly affects the visual state of Hutty's cubs, reinforcing emotional attachment."
+      data-ru="Результаты игрока напрямую влияют на визуальное состояние детёнышей, усиливая эмоциональную вовлечённость.">
+      The player's performance directly affects the visual state of Hutty's cubs, reinforcing emotional attachment.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3
+      data-en="Meta Progression"
+      data-ru="Мета-прогрессия">
+      Meta Progression
+      </h3>
+
+      <p
+      data-en="Unlockable levels, collectible cards, achievements and leaderboard systems support long-term retention."
+      data-ru="Открываемые уровни, коллекционные карточки, достижения и лидерборды поддерживают долгосрочное удержание.">
+      Unlockable levels, collectible cards, achievements and leaderboard systems support long-term retention.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3
+      data-en="Short Session Design"
+      data-ru="Короткие игровые сессии">
+      Short Session Design
+      </h3>
+
+      <p
+      data-en="30–90 second runs with near-instant restart encourage 'one more try' player behavior."
+      data-ru="Сессии длиной 30–90 секунд и быстрый restart формируют поведение 'ещё одна попытка'.">
+      30–90 second runs with near-instant restart encourage 'one more try' player behavior.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Difficulty & Balance Design -->
+
+<section>
+
+  <h2 class="section-title"
+  data-en="Difficulty & Balance Design"
+  data-ru="Баланс и сложность">
+  Difficulty & Balance Design
+  </h2>
+
+  <div class="difficulty-grid">
+
+    <div class="difficulty-card">
+
+      <div class="difficulty-number">01</div>
+
+      <h3
+      data-en="Enemy Speed Scaling"
+      data-ru="Рост скорости врагов">
+      Enemy Speed Scaling
+      </h3>
+
+      <p
+      data-en="Snake speed increases continuously during the session while also scaling between levels."
+      data-ru="Скорость змей растёт как внутри сессии, так и между уровнями.">
+      Snake speed increases continuously during the session while also scaling between levels.
+      </p>
+
+    </div>
+
+    <div class="difficulty-card">
+
+      <div class="difficulty-number">02</div>
+
+      <h3
+      data-en="Spawn Density"
+      data-ru="Плотность спавна">
+      Spawn Density
+      </h3>
+
+      <p
+      data-en="Threat intervals shrink over time, increasing screen chaos and cognitive pressure."
+      data-ru="Интервалы между угрозами сокращаются, увеличивая хаос и когнитивную нагрузку.">
+      Threat intervals shrink over time, increasing screen chaos and cognitive pressure.
+      </p>
+
+    </div>
+
+    <div class="difficulty-card">
+
+      <div class="difficulty-number">03</div>
+
+      <h3
+      data-en="Reward Pressure"
+      data-ru="Давление наград">
+      Reward Pressure
+      </h3>
+
+      <p
+      data-en="Eggs fall faster as survival time increases, reducing reaction windows."
+      data-ru="Скорость падения яиц увеличивается по мере выживания игрока.">
+      Eggs fall faster as survival time increases, reducing reaction windows.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="difficulty-peak">
+
+    <span
+    data-en="Peak Intensity Window"
+    data-ru="Пик напряжения">
+    Peak Intensity Window
+    </span>
+
+    <h3     
+      data-en="from 60 to 30 seconds"
+      data-ru="от 60 до 30 секунды">
+      from 60 to 30 seconds</h3>
+
+    <p
+    data-en="The game reaches maximum emotional pressure through simultaneous speed growth, object density and reduced safe space. The difficulty curve is designed so that the early levels give the player a sense of control, and then gradually shift the game into a state of heightened pressure."
+    data-ru="Игра достигает максимального напряжения за счёт одновременного роста скорости, плотности объектов и сокращения безопасного пространства. Кривая сложности построена так, чтобы первые уровни давали игроку ощущение контроля, а затем постепенно переводили игру в состояние повышенного давления.">
+    The game reaches maximum emotional pressure through simultaneous speed growth, object density and reduced safe space. The difficulty curve is designed so that the early levels give the player a sense of control, and then gradually shift the game into a state of heightened pressure.
+    </p>
+
+
+    <div class="peak-grid">
+      
+      <div class="peak-card">
+
+        <div class="peak-number">01</div>
+
+        <h2>
+        ~60 sec
+        </h2>
+
+      </div>
+
+      <div class="peak-card">
+
+        <div class="peak-number">02</div>
+
+        <h2>
+        ~55 sec
+        </h2>
+
+      </div>
+
+      <div class="peak-card">
+
+        <div class="peak-number">03</div>
+
+        <h2>
+        ~50 sec
+        </h2>
+
+      </div>
+
+          <div class="peak-card">
+
+        <div class="peak-number">04</div>
+
+        <h2>
+        ~45 sec
+        </h2>
+
+      </div>
+
+      <div class="peak-card">
+
+        <div class="peak-number">05</div>
+
+        <h2>
+        ~40 sec
+        </h2>
+
+      </div>
+
+      <div class="peak-card">
+
+        <div class="peak-number">06</div>
+
+        <h2>
+        ~35 sec
+        </h2>
+
+      </div>
+
+      <div class="peak-card">
+
+        <div class="peak-number">07</div>
+
+        <h2>
+        ~30 sec
+        </h2>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SCREENSHOTS -->
+
+<section>
+
+  <h2 class="section-title"
+      data-en="Visual Showcase"
+      data-ru="Визуальная галерея">
+      Visual Showcase
+  </h2>
+
+  <div class="gallery-grid">
+
+    <div class="image-wrapper">
+      <img src="../Assets/Hutty/main-menu.png"
+           alt="Main Menu"
+           onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Hutty/manual.png"
+           alt="Gameplay"
+           onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Hutty/map.png"
+           alt="Gameplay"
+           onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Hutty/game.png"
+           alt="UI"
+           onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Hutty/card.png"
+           alt="UI"
+           onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Hutty/gameover.png"
+           alt="UI"
+           onclick="openLightbox(this.src)">
+    </div>
+ 
+
+    <div class="image-wrapper">
+      <img src="../Assets/Hutty/leaderboard.png"
+           alt="UI"
+           onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Hutty/shop.png"
+           alt="UI"
+           onclick="openLightbox(this.src)">
+    </div>
+
+</section>
+
+<!-- GAMEPLAY -->
+
+<section id="gameplay">
+
+  <h2 class="section-title"
+      data-en="Gameplay Video"
+      data-ru="Видео геймплея">
+      Gameplay Video
+  </h2>
+
+  <div class="video-wrapper">
+
+    <video controls autoplay muted loop playsinline>
+
+      <source src="../Assets/Hutty/hutty.mp4"
+              type="video/mp4">
+
+    </video>
+
+  </div>
+
+</section>
+
+<!-- DEVELOPMENT -->
+
+<section>
+
+  <h2 class="section-title"
+  data-en="Design Vision"
+  data-ru="Дизайн-концепция">
+  Design Vision
+  </h2>
+
+  <div class="development-block">
+
+    <p
+    data-en="Hutty was designed around the idea of emotional pressure through simple mechanics. The core gameplay combines fast arcade decision-making with narrative motivation, where every collected egg directly affects the survival of Hutty's cubs."
+    data-ru="Hutty создавался вокруг идеи эмоционального давления через простые механики. Основной геймплей сочетает быстрое arcade-принятие решений с narrative-мотивацией, где каждое собранное яйцо напрямую влияет на выживание детёнышей Хати.">
+    Hutty was designed around the idea of emotional pressure through simple mechanics. The core gameplay combines fast arcade decision-making with narrative motivation, where every collected egg directly affects the survival of Hutty's cubs.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  © 2026 Maria Klochay
+
+</footer>
+
+</div>
+
+<script src="../JS/language.js"></script>
+<script src="../JS/lightbox.js"></script>
+
+<!-- LIGHTBOX -->
+
+<div id="lightbox" onclick="closeLightbox()">
+
+  <span class="lightbox-close">×</span>
+
+  <img id="lightbox-img">
+
+</div>
+
+</body>
+</html>

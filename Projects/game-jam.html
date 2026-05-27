@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="image/png" href="favicon.png">
+
 <title>Siberian Game Jam — Case Study</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +20,8 @@
   --text:#f5f6f8;
   --muted:#b8bbc7;
   --line:rgba(255,255,255,0.06);
-  --accent:#ff8a3d;
+  --line-button:rgba(255,255,255,0.2);
+  --accent:#f1a775;
 }
 
 *{
@@ -55,7 +59,7 @@ header{
 .lang button{
   color:var(--text);
   text-decoration:none;
-  border:2px solid var(--line);
+  border:2px solid var(--line-button);
   background:transparent;
   padding:10px 16px;
   border-radius:12px;
@@ -68,7 +72,9 @@ header{
 .lang button:hover,
 .card:hover,
 .image-placeholder:hover,
-.quote:hover{
+.quote:hover,
+.goal:hover,
+.contribution:hover{
   border-color:var(--accent);
   box-shadow:
     0 0 0 1px rgba(255,138,61,0.12),
@@ -81,8 +87,30 @@ header{
   gap:10px;
 }
 
+.hero-date-top {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--accent);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .hero{
-  padding:120px 0 110px;
+  display: flex;
+  justify-content: space-between; 
+  gap: 40px;                     
+  align-items: flex-start; 
+  padding:100px 0 50px;
+}
+
+.conclusion {
+  margin-top: 16px; /* Создает идеальный отступ между абзацами */
+}
+
+.hero-content {
+  flex: 1; 
 }
 
 .hero h1{
@@ -90,6 +118,7 @@ header{
   line-height:0.95;
   letter-spacing:-3px;
   margin-bottom:24px;
+  margin-top:50px;
 }
 
 .role{
@@ -107,10 +136,11 @@ header{
 }
 
 .info-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-  margin-top:48px;
+  display: flex;
+  flex-direction: column;        
+  gap: 20px;                     
+  min-width: 280px;
+  /* margin-top:48px; */
 }
 
 .card{
@@ -119,12 +149,36 @@ header{
   border-radius:22px;
   padding:28px;
   transition:0.28s ease;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .card-title{
-  color:var(--muted);
+  color:var(--accent);
   margin-bottom:10px;
-  font-size:14px;
+  font-size:16px;
+  font-weight: bold;
+}
+
+.secondary-link-wrapper{
+  display:flex;
+  justify-content:center;
+  margin-top:20px;
+}
+
+.secondary-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:14px 22px;
+  font-size:15px;
+  border-radius:16px;
+  opacity:0.82;
+}
+
+.secondary-link:hover{
+  opacity:1;
 }
 
 section{
@@ -136,7 +190,7 @@ section{
   text-align:center;
   font-size:52px;
   letter-spacing:-2px;
-  margin-bottom:70px;
+  margin-bottom:50px;
 }
 
 .text{
@@ -155,6 +209,12 @@ section{
   gap:18px;
 }
 
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
 .goal,
 .contribution,
 .quote{
@@ -167,6 +227,19 @@ section{
 
 .goal h3,
 .contribution h3{
+  color:var(--accent);
+  margin-bottom:16px;
+}
+
+
+.hero h3{
+  color:var(--accent);
+  margin-bottom:16px;
+}
+
+.contribution h4{
+  color:var(--accent);
+  font-size:15px;
   margin-bottom:16px;
 }
 
@@ -197,7 +270,7 @@ section{
 
   color:rgba(245,246,248,0.92);
 
-  font-size:15px;
+  font-size:18px;
   font-weight:500;
   letter-spacing:-0.2px;
 
@@ -213,6 +286,13 @@ section{
   cursor:default;
 }
 
+.download-buttons{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
 
 /* SUBTLE TOP LIGHT */
 
@@ -339,6 +419,23 @@ section{
 
 /* MOBILE */
 
+
+@media(max-width:1100px){
+
+  .team-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:700px){
+
+  .team-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
 @media(max-width:768px){
 
   .process{
@@ -350,6 +447,15 @@ section{
     text-align:center;
   }
 
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }       
+  .info-grid {
+    width: 100%;                  
+  }
 }
 
 .image-placeholder{
@@ -383,6 +489,7 @@ section{
 
 .final-block{
   background:linear-gradient(180deg,var(--panel),#1a1d2a);
+  text-align: center;
   border:1px solid rgba(255,255,255,0.06);
   border-radius:30px;
   padding:60px;
@@ -406,7 +513,6 @@ footer{
     font-size:52px;
   }
 
-  .info-grid,
   .goals-grid,
   .contribution-grid,
   .gallery-grid,
@@ -424,6 +530,16 @@ footer{
   text-align:center;
   color:var(--text);
   letter-spacing:-0.5px;
+}
+
+.Post-Jam-title{
+  font-size:52px;
+  margin:60px 0 26px;
+  text-align:center;
+  color:var(--text);
+  letter-spacing:-0.5px;
+  margin-bottom:50px;
+  margin-top:70px;
 }
 
 .video-wrapper{
@@ -543,6 +659,61 @@ footer{
   color:var(--accent);
 }
 
+.jam-link-wrapper{
+  margin-top:48px;
+  display:flex;
+  justify-content:center;
+}
+
+.jam-link{
+
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:18px 28px;
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(24,27,38,0.95),
+      rgba(17,19,28,0.98)
+    );
+
+  border:1px solid rgba(249, 167, 91, 0.969);
+
+  color:var(--text);
+  text-decoration:none;
+
+  font-size:16px;
+  font-weight:500;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+.jam-link:hover{
+
+  transform:
+    translateY(-3px)
+    scale(1.01);
+
+  border-color:
+    rgba(255,138,61,0.35);
+
+  color:var(--accent);
+
+  box-shadow:
+    0 0 0 1px rgba(255,138,61,0.08),
+    0 16px 40px rgba(0,0,0,0.34),
+    0 0 48px rgba(255,138,61,0.08);
+}
+
 </style>
 </head>
 
@@ -567,39 +738,53 @@ footer{
 <!-- HERO -->
 <section class="hero">
 
+  <!-- ЛЕВАЯ КОЛОНКА: Основной текст -->
+
+<div class="hero-content">
   <div class="role"
-  data-en="Game Designer / Level Designer"
-  data-ru="Game Designer / Level Designer">
-  Game Designer / Level Designer
+       data-en="Game Designer / Level Designer"
+       data-ru="Game Designer / Level Designer">
+    Game Designer / Level Designer
   </div>
 
-  <h1>Siberian Game Jam 2026</h1>
+  <h1>Siberian Game Jam</h1>
+
+  <div class="hero-date-top" data-en="MAY 2026" data-ru="МАЙ 2026">МАЙ 2026</div>
 
   <p class="hero-text"
-  data-en="Collaborating with a junior team under strict jam constraints taught me the art of prioritization. Post-jam, I took the initiative to fully implement the intended mechanics and atmospheric details that were initially cut due to time."
-  data-ru="Работа с начинающей командой в условиях джема научила меня приоритизации. Позже я использовала этот опыт, чтобы самостоятельно дореализовать те механики и элементы атмосферы, на которые не хватило времени в ходе самого конкурса.">
-  Collaborating with a junior team under strict jam constraints taught me the art of prioritization. Post-jam, I took the initiative to fully implement the intended mechanics and atmospheric details that were initially cut due to time.
+    data-en="This jam was a vital lesson in management. I realized the critical importance of planning and precise task definition from the start to avoid weak narrative and raw mechanics."
+    data-ru="Этот джем стал для меня важным уроком менеджмента. Я осознала критическую значимость планирования и точной постановки задач на старте, чтобы избежать слабого нарратива и сырых игровых механик.">
+    Этот джем стал для меня важным уроком менеджмента. Я осознала критическую значимость планирования и точной постановки задач на старте, чтобы избежать слабого нарратива и сырых игровых механик.
   </p>
 
+  <p class="hero-text conclusion"
+    data-en="Taking time for rest and an objective evaluation, I rebuilt the project post-jam, slightly better unlocking its game design potential."
+    data-ru="Взяв паузу для трезвой оценки и отдыха, после джема я пересобрала проект, чуть лучше раскрыть его геймдизайнерский потенциал.">
+    Взяв паузу для трезвой оценки и отдыха, после джема я пересобрала проект, чуть лучше раскрыть его геймдизайнерский потенциал.
+  </p>
+</div>
+
+
+  <!-- ПРАВАЯ КОЛОНКА: Карточки в столбик -->
   <div class="info-grid">
 
-    <div class="card">
+    <!-- <div class="card">
       <div class="card-title" data-en="Role" data-ru="Роль">Role</div>
       <div data-en="Game Design / Level Design" data-ru="Геймдизайн / Левел-дизайн">Game Design / Level Design</div>
+    </div> -->
+
+    <div class="card">
+      <div class="card-title" data-en="Duration" data-ru="Сроки">Сроки</div>
+      <div data-en="72 hours" data-ru="72 часа">72 часа</div>
     </div>
 
     <div class="card">
-      <div class="card-title" data-en="Duration" data-ru="Сроки">Duration</div>
-      <div data-en="72 hours" data-ru="72 часа">72 hours</div>
+      <div class="card-title" data-en="Focus" data-ru="Фокус">Фокус</div>
+      <div data-en="Gameplay & Atmosphere" data-ru="Геймплей и атмосфера">Геймплей и атмосфера</div>
     </div>
 
     <div class="card">
-      <div class="card-title" data-en="Focus" data-ru="Фокус">Focus</div>
-      <div data-en="Gameplay & Atmosphere" data-ru="Геймплей и атмосфера">Gameplay & Atmosphere</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title" data-en="Tools" data-ru="Инструменты">Tools</div>
+      <div class="card-title" data-en="Tools" data-ru="Инструменты">Инструменты</div>
       <div>Unity / Blender / Illustrator</div>
     </div>
 
@@ -607,20 +792,106 @@ footer{
 
 </section>
 
-<!-- CHALLENGE -->
+<div class="secondary-link-wrapper">
+  <a href="#post-jam"
+  class="jam-link secondary-link"
+  data-en="See Post-Jam Version ↓"
+  data-ru="Пост-джем версия ↓">
+  Пост-джем версия ↓
+  </a>
+</div>
+
 <section>
 
   <h2 class="section-title"
-  data-en="The Challenge"
-  data-ru="Задача">
-  The Challenge
+  data-en="Team"
+  data-ru="Команда">
+  Команда
   </h2>
 
-  <p class="text"
-  data-en="The project was created during a game jam with limited time and production resources. The main goal was to quickly transform an abstract gameplay concept into a cohesive playable experience with readable mechanics, clear level flow and strong atmosphere."
-  data-ru="Проект создавался в рамках геймджема с ограниченным временем и production-ресурсами. Главной задачей было быстро превратить абстрактную игровую идею в цельный игровой опыт с читаемыми механиками, понятным потоком уровня и выразительной атмосферой.">
-  The project was created during a game jam with limited time and production resources. The main goal was to quickly transform an abstract gameplay concept into a cohesive playable experience with readable mechanics, clear level flow and strong atmosphere.
-  </p>
+  <div class="team-grid">
+
+    <div class="contribution">
+      <h4 data-en="Maria Klochay"
+      data-ru="Мария Клочай">Мария Клочай</h4>
+
+      <p
+      data-en="- Game Designer
+      - Level Designer
+      - 3D Artist
+      - QA"
+      data-ru="- Геймдизайнер
+      - Левел-дизайнер
+      - 3D художник
+      - Тестировщик">
+      - Геймдизайнер <br>
+      - Левел-дизайнер <br>
+      - 3D художник <br>
+      - Тестировщик
+      </p>
+    </div>
+
+    <div class="contribution">
+      <h4 data-en="Anton Egorov"
+      data-ru="Антон Егоров">Антон Егоров</h4>
+  
+      <p
+      data-en="- Lead Unity Developer
+      - Sound Designer 
+      - UI Engineering"
+      data-ru="- Lead Unity-разработчик
+      - Sound Designer 
+      - UI Engineering">
+      - Lead Unity-разработчик <br>
+      - Sound Designer <br>
+      - UI Engineering <br>
+
+      </p>
+    </div>
+
+    <div class="contribution">
+      <h4 data-en="Elena Ponomarenko"
+      data-ru="Елена Пономаренко">Елена Пономаренко</h4>
+
+      <p
+      data-en="- 3D Artist
+      - QA"
+      data-ru="- 3D художник
+      - Тестировщик">
+      - 3D художник <br>
+      - Тестировщик
+      </p>
+    </div>
+
+    <div class="contribution">
+      <h4 data-en="Gleb Kholmsky"
+      data-ru="Глеб Холмский">Глеб Холмский</h4>
+
+      <p
+      data-en="- Gameplay Programming
+      - Community Management"
+      data-ru="- Программист
+      - PR-менеджер">
+      - Программист <br>
+      - PR-менеджер 
+      </p>
+    </div>
+
+    <div class="contribution">
+      <h4 data-en="Kirill Gulyaev"
+      data-ru="Кирилл Гуляев">Кирилл Гуляев</h4>
+      
+      <p
+      data-en="- Logo Design 
+      - Typography"
+      data-ru="- Дизайн логотипа 
+      - Подбор шрифтов">
+      - Дизайн логотипа <br>
+      - Подбор шрифтов
+      </p>
+    </div>
+
+  </div>
 
 </section>
 
@@ -628,31 +899,67 @@ footer{
 <section>
 
   <h2 class="section-title"
-  data-en="Design Goals"
-  data-ru="Цели дизайна">
-  Design Goals
+  data-en="Jam Priorities"
+  data-ru="Приоритеты джема">
+  Приоритеты джема
   </h2>
 
   <div class="goals-grid">
 
     <div class="goal">
-      <h3 data-en="Readable Gameplay" data-ru="Читаемый геймплей">Readable Gameplay</h3>
-      <p data-en="Ensure that player interactions and navigation remain understandable even during fast iteration." data-ru="Сделать взаимодействия и навигацию понятными даже в условиях быстрой разработки.">Ensure that player interactions and navigation remain understandable even during fast iteration.</p>
+      <h3
+      data-en="Playable Core"
+      data-ru="Рабочий геймплей">
+      Рабочий геймплей
+      </h3>
+
+      <p
+      data-en="Focus on creating a playable prototype with working mechanics before adding polish."
+      data-ru="Сделать рабочий прототип с базовыми механиками раньше, чем заниматься полировкой.">
+      Сделать рабочий прототип с базовыми механиками раньше, чем заниматься полировкой.
+      </p>
     </div>
 
     <div class="goal">
-      <h3 data-en="Atmosphere" data-ru="Атмосфера">Atmosphere</h3>
-      <p data-en="Use lighting, composition and environment design to support the emotional tone of the experience." data-ru="Использовать освещение, композицию и окружение для поддержки эмоционального восприятия игры.">Use lighting, composition and environment design to support the emotional tone of the experience.</p>
+      <h3
+      data-en="Atmosphere"
+      data-ru="Атмосфера">
+      Атмосфера
+      </h3>
+
+      <p
+      data-en="Use lighting, sound and environment design to create tension inside the laboratory."
+      data-ru="Создать напряжённую атмосферу лаборатории через свет, звук и окружение.">
+      Создать напряжённую атмосферу лаборатории через свет, звук и окружение.
+      </p>
     </div>
 
     <div class="goal">
-      <h3 data-en="Player Flow" data-ru="Поток игрока">Player Flow</h3>
-      <p data-en="Build level structure around intuitive movement and visual guidance." data-ru="Построить структуру уровня вокруг интуитивного движения и визуального направления игрока.">Build level structure around intuitive movement and visual guidance.</p>
+      <h3
+      data-en="Clear Navigation"
+      data-ru="Понятная навигация">
+      Понятная навигация
+      </h3>
+
+      <p
+      data-en="Help players understand where to go and how to interact with the environment."
+      data-ru="Сделать перемещение и взаимодействие с окружением интуитивно понятными.">
+      Сделать перемещение и взаимодействие с окружением интуитивно понятными.
+      </p>
     </div>
 
     <div class="goal">
-      <h3 data-en="Rapid Production" data-ru="Быстрое производство">Rapid Production</h3>
-      <p data-en="Create reusable assets and production-friendly workflow under strict deadlines." data-ru="Создать production-friendly пайплайн и переиспользуемые ассеты в условиях жёстких дедлайнов.">Create reusable assets and production-friendly workflow under strict deadlines.</p>
+      <h3
+      data-en="Scope Control"
+      data-ru="Контроль масштаба">
+      Контроль масштаба
+      </h3>
+
+      <p
+      data-en="Keep the scope realistic for a 72-hour development timeline."
+      data-ru="Удержать масштаб проекта в рамках 72-часового джема.">
+      Удержать масштаб проекта в рамках 72-часового джема.
+      </p>
     </div>
 
   </div>
@@ -665,29 +972,57 @@ footer{
   <h2 class="section-title"
   data-en="My Contribution"
   data-ru="Мой вклад">
-  My Contribution
+  Мой вклад
   </h2>
 
   <div class="contribution-grid">
 
     <div class="contribution">
-      <h3 data-en="Game Design" data-ru="Геймдизайн">Game Design</h3>
-      <p data-en="Created the gameplay concept, designed core mechanics and prepared the initial GDD." data-ru="Разработала концепт игры, основные механики и подготовила первоначальный GDD.">Created the gameplay concept, designed core mechanics and prepared the initial GDD.</p>
+      <h3 data-en="Game Design" data-ru="Геймдизайн">
+        Геймдизайн
+      </h3>
+
+      <p
+      data-en="Created the gameplay concept, designed core mechanics and prepared the initial GDD."
+      data-ru="Разработала концепт игры, основные механики и подготовила первоначальный GDD.">
+      Разработала концепт игры, основные механики и подготовила первоначальный GDD.
+      </p>
     </div>
 
     <div class="contribution">
-      <h3 data-en="Level Design" data-ru="Левел-дизайн">Level Design</h3>
-      <p data-en="Designed the first level layout in Illustrator and later implemented it directly in Unity." data-ru="Создала первую схему уровня в Illustrator и позже реализовала её в Unity.">Designed the first level layout in Illustrator and later implemented it directly in Unity.</p>
+      <h3 data-en="Level Design" data-ru="Левел-дизайн">
+        Левел-дизайн
+      </h3>
+
+      <p
+      data-en="Designed the first level layout in Illustrator and later implemented it directly in Unity."
+      data-ru="Создала первую схему уровня в Illustrator и позже реализовала её в Unity.">
+      Создала первую схему уровня в Illustrator и позже реализовала её в Unity.
+      </p>
     </div>
 
     <div class="contribution">
-      <h3 data-en="3D Production" data-ru="3D Production">3D Production</h3>
-      <p data-en="Modeled environment assets and interactive prefabs in Blender." data-ru="Замоделила окружение и интерактивные префабы в Blender.">Modeled environment assets and interactive prefabs in Blender.</p>
+      <h3 data-en="3D Production" data-ru="3D деятельность">
+        3D деятельность
+      </h3>
+
+      <p
+      data-en="Modeled environment assets and interactive prefabs in Blender."
+      data-ru="Замоделила окружение и интерактивные префабы в Blender.">
+      Замоделила окружение и интерактивные префабы в Blender.
+      </p>
     </div>
 
     <div class="contribution">
-      <h3 data-en="Lighting & Atmosphere" data-ru="Освещение и атмосфера">Lighting & Atmosphere</h3>
-      <p data-en="Configured lighting and visual composition to strengthen gameplay readability and atmosphere." data-ru="Настроила освещение и визуальную композицию для усиления атмосферы и читаемости.">Configured lighting and visual composition to strengthen gameplay readability and atmosphere.</p>
+      <h3 data-en="Lighting & Atmosphere" data-ru="Освещение и атмосфера">
+        Освещение и атмосфера
+      </h3>
+
+      <p
+      data-en="Configured lighting and visual composition to strengthen gameplay readability and atmosphere."
+      data-ru="Настроила освещение и визуальную композицию для усиления атмосферы и читаемости.">
+      Настроила освещение и визуальную композицию для усиления атмосферы и читаемости.
+      </p>
     </div>
 
   </div>
@@ -699,8 +1034,8 @@ footer{
 
   <h2 class="section-title"
   data-en="Iteration Process"
-  data-ru="Процесс итерации">
-  Iteration Process
+  data-ru="Процесс разработки">
+  Процесс разработки
   </h2>
 
   <div class="process">
@@ -721,14 +1056,14 @@ footer{
   <h2 class="section-title"
   data-en="Visual Development"
   data-ru="Визуальная разработка">
-  Visual Development
+  Визуальная разработка
   </h2>
 
   <!-- IDEATION -->
   <h3 class="subsection-title"
   data-en="Pre-production / Ideation"
   data-ru="Препродакшн / Идеи">
-  Pre-production / Ideation
+  Препродакшн / Идеи
   </h3>
 
   <div class="gallery-grid">
@@ -747,7 +1082,7 @@ footer{
   <h3 class="subsection-title"
   data-en="Level Design (Illustrator)"
   data-ru="Левел-дизайн (Illustrator)">
-  Level Design (Illustrator)
+  Левел-дизайн (Illustrator)
   </h3>
 
   <div class="gallery-grid">
@@ -766,7 +1101,7 @@ footer{
   <h3 class="subsection-title"
   data-en="In-Engine Implementation (Unity)"
   data-ru="Реализация в Unity">
-  In-Engine Implementation (Unity)
+  Реализация в Unity
   </h3>
 
   <div class="gallery-grid">
@@ -816,7 +1151,7 @@ footer{
   <h2 class="section-title"
   data-en="Gameplay Footage"
   data-ru="Геймплей">
-  Gameplay Footage
+  Геймплей
   </h2>
 
   <div class="video-wrapper">
@@ -838,7 +1173,7 @@ footer{
   <h2 class="section-title"
   data-en="Playtester Feedback"
   data-ru="Отзывы игроков">
-  Playtester Feedback
+  Отзывы игроков
   </h2>
 
   <div class="feedback-grid">
@@ -847,7 +1182,7 @@ footer{
       <p
       data-en="Strong potential. The project clearly shows a lot of work, even though it still needs polishing and bug fixing."
       data-ru="Сразу видно, что проделана большая работа. Проекту ещё требуется полировка и исправление багов, но потенциал огромный.">
-      Сразу видно, что проделана большая работа...
+      Сразу видно, что проделана большая работа. Проекту ещё требуется полировка и исправление багов, но потенциал огромный.
       </p>
     </div>
 
@@ -855,7 +1190,7 @@ footer{
       <p
       data-en="Atmospheric game with great sound design and transformation mechanics. Each form having unique abilities made gameplay engaging."
       data-ru="Атмосферная игра с классным звуком и механикой превращений. У каждой формы есть свои способности, что делает геймплей интересным.">
-      Атмосферная игра...
+      Атмосферная игра с классным звуком и механикой превращений. У каждой формы есть свои способности, что делает геймплей интересным.
       </p>
     </div>
 
@@ -863,7 +1198,7 @@ footer{
       <p
       data-en="Visually strong with great animations and effects. Echo sound on lower floors was especially memorable."
       data-ru="Сильный визуал, анимации и эффекты. Особенно понравился эффект эха на нижних этажах.">
-      Крутой визуал...
+      Сильный визуал, анимации и эффекты. Особенно понравился эффект эха на нижних этажах.
       </p>
     </div>
 
@@ -871,30 +1206,45 @@ footer{
       <p
       data-en="Good visuals, but level design clarity and objectives could be improved for better player guidance."
       data-ru="Хороший визуал, но не хватило ясности в левел-дизайне и целях игрока.">
-      Хороший визуал...
+      Хороший визуал, но не хватило ясности в левел-дизайне и целях игрока.
       </p>
     </div>
 
   </div>
 
+  <div class="jam-link-wrapper">
+
+  <a 
+    href="https://platform.sibgamejam.com/games/glebiank/supermbb/jams"
+    target="_blank"
+    class="jam-link"
+    data-en="View Original Jam Submission →"
+    data-ru="Посмотреть оригинальную версию на Game Jam →">
+    
+    Посмотреть оригинальную версию на Game Jam →
+
+  </a>
+
+</div>
+
 </section>
 
 
 <!-- POST JAM -->
-<section>
+<section id="post-jam">
 
   <div class="final-block">
 
-    <h3
+    <h2 class="section-title"
     data-en="Post-Jam Redesign"
     data-ru="Пост-джем версия">
-    Post-Jam Redesign
-    </h3>
+    Пост-джем версия
+    </h2>
 
     <p class="text"
     data-en="After the jam I continued refining the project to better reflect the original gameplay and level design vision. The updated version focuses on clearer player flow, stronger environmental storytelling and improved gameplay readability."
-    data-ru="После джема я продолжила дорабатывать проект, чтобы лучше раскрыть первоначальную задумку игровых механик и левел-дизайна. Обновлённая версия делает больший акцент на потоке игрока, environmental storytelling и читаемости игрового пространства.">
-    After the jam I continued refining the project to better reflect the original gameplay and level design vision. The updated version focuses on clearer player flow, stronger environmental storytelling and improved gameplay readability.
+    data-ru="После джема я продолжила дорабатывать проект, чтобы лучше раскрыть первоначальную задумку игровых механик и левел-дизайна. Обновлённая версия делает больший акцент на потоке игрока, повествовании через окружение и читаемости игрового пространства.">
+    После джема я продолжила дорабатывать проект, чтобы лучше раскрыть первоначальную задумку игровых механик и левел-дизайна. Обновлённая версия делает больший акцент на потоке игрока, повествовании через окружение и читаемости игрового пространства.
     </p>
 
     <div class="video-wrapper" style="margin-top:40px;">
@@ -903,7 +1253,182 @@ footer{
       </video>
     </div>
 
+    <div class="download-buttons">
+
+      <a 
+        href="https://drive.google.com/uc?export=download&id=11-FwHr4ZOBcj3h1zDV06VJ9VYc6-kIEt"
+        target="_blank"
+        class="jam-link"
+        data-en="Download Build"
+        data-ru="Скачать билд">
+        Скачать билд
+      </a>
+
+      <a 
+        href="https://klochimp.itch.io/fragimight"
+        target="_blank"
+        class="jam-link"
+        data-en="Play on itch.io"
+        data-ru="Играть на itch.io">
+        Играть на itch.io
+      </a>
+
+    </div>
+
   </div>
+
+</section>
+
+<!-- POST JAM SYSTEMS -->
+<section>
+
+  <h2 class="section-title"
+  data-en="Post-Jam Expansion"
+  data-ru="Развитие проекта после джема">
+  Развитие проекта после джема
+  </h2>
+
+  <div class="contribution-grid">
+
+    <div class="contribution">
+      <h3 data-en="Destruction & Physics" data-ru="Разрушаемость и физика">
+        Разрушаемость и физика
+      </h3>
+      <p data-en="Created breakable doors in Blender and set up the explosion physics inside Unity so objects shatter realistically."
+        data-ru="Создала разрушаемые двери в Blender и настроила физику взрыва в Unity, чтобы объекты разлетались на реалистичные осколки.">
+        Создала разрушаемые двери в Blender и настроила физику взрыва в Unity, чтобы объекты разлетались на реалистичные осколки.
+      </p>
+    </div>
+
+
+    <div class="contribution">
+
+      <h3
+      data-en="Terminal & Password Systems"
+      data-ru="Система терминалов и паролей">
+      Система терминалов и паролей
+      </h3>
+
+      <p
+      data-en="Created interactive terminal, keypad UI, password validation logic and player interaction flow with input control."
+      data-ru="Создала интерактивный терминал, keypad UI, систему проверки паролей и управление вводом игрока.">
+      Создала интерактивный терминал, keypad UI, систему проверки паролей и управление вводом игрока.
+      </p>
+
+    </div>
+
+
+    <div class="contribution">
+      <h3 data-en="Narrative AI System S.A.R.K." data-ru="Система ИИ S.A.R.K.">
+        Система ИИ S.A.R.K.
+      </h3>
+      <p data-en="Built a dialogue system triggered by player actions to display story events and dynamic messages from the AI."
+        data-ru="Создала систему диалогов, которая запускает сюжетные события и выводит сообщения от искусственного интеллекта в нужные моменты.">
+        Создала систему диалогов, которая запускает сюжетные события и выводит сообщения от искусственного интеллекта в нужные моменты.
+      </p>
+    </div>
+
+
+    <div class="contribution">
+      <h3 data-en="Narrative & Level Design" data-ru="Нарратив и левел-дизайн">
+        Нарратив и левел-дизайн
+      </h3>
+      <p data-en="Designed lab spaces to guide the player naturally, using lighting and environment details to tell a story and build tension."
+        data-ru="Спроектировала помещения лаборатории так, чтобы интуитивно вести игрока по сюжету, используя свет и детали окружения для создания напряжения.">
+        Спроектировала помещения лаборатории так, чтобы интуитивно вести игрока по сюжету, используя свет и детали окружения для создания напряжения.
+      </p>
+    </div>
+
+
+    <div class="contribution">
+      <h3 data-en="Game Rules & Endings" data-ru="Финал и условия проигрыша">
+        Финал и условия проигрыша
+      </h3>
+      <p data-en="Linked keycard access with escape routes, and built a game-over system with a countdown timer that ends the session if time runs out."
+        data-ru="Связала использование ключ-карт с путями побега, а также создала систему гейм-овера с таймером, который завершает игру, если время истекло.">
+        Связала использование ключ-карт с путями побега, а также создала систему гейм-овера с таймером, который завершает игру, если время истекло.
+      </p>
+    </div>
+
+
+    <div class="contribution">
+
+      <h3
+      data-en="Immersive Sound Design"
+      data-ru="Звуки для погружения">
+      Звуки для погружения
+      </h3>
+
+      <p
+      data-en="Added detailed sound effects to bring the laboratory to life: background alarms, elevator movement, heavy doors breaking, lever clicks, and the eerie appearance of the S.A.R.K. AI on screens."
+      data-ru="Оживила атмосферу лаборатории с помощью звуков: настроила фоновую тревогу, движение лифта, грохот ломающейся двери, щелчки рычагов и появление на экранах ИИ S.A.R.K.">
+      Оживила атмосферу лаборатории с помощью звуков: настроила фоновую тревогу, движение лифта, грохот ломающейся двери, щелчки рычагов и появление на экранах ИИ S.A.R.K.
+      </p>
+
+    </div>
+
+  </div>
+
+  <h3 class="Post-Jam-title"
+  data-en="Post-Jam Screenshots"
+  data-ru="Скриншоты пост-джем версии">
+  Скриншоты пост-джем версии
+  </h3>
+
+  <div class="gallery-grid">
+
+    <div class="image-wrapper">
+      <img src="../Assets/Jam/Screenshot1.png"
+      alt="Post Jam Screenshot"
+      onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Jam/Screenshot2.png"
+      alt="Post Jam Screenshot"
+      onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Jam/Screenshot3.png"
+      alt="Post Jam Screenshot"
+      onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Jam/Screenshot4.png"
+      alt="Post Jam Screenshot"
+      onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Jam/Screenshot5.png"
+      alt="Post Jam Screenshot"
+      onclick="openLightbox(this.src)">
+    </div>
+
+        <div class="image-wrapper">
+      <img src="../Assets/Jam/Screenshot6.png"
+      alt="Post Jam Screenshot"
+      onclick="openLightbox(this.src)">
+    </div>
+
+  </div>
+
+  
+
+  <p class="text" style="margin-top:50px; text-align:center; max-width:850px;">
+
+    <span
+    data-en="The post-jam iteration became an opportunity to explore gameplay polish, interaction design and environmental storytelling beyond strict time limitations."
+    
+    data-ru="Пост-джем версия стала возможностью глубже исследовать полировку геймплея, интерактивный дизайн и повествование через окружение вне ограничений джема.">
+    
+    Пост-джем версия стала возможностью глубже исследовать полировку геймплея, интерактивный дизайн и повествование через окружение вне ограничений джема.
+
+    </span>
+
+  </p>
 
 </section>
 
