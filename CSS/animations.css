@@ -19,7 +19,8 @@ nav a:hover,
 .skill:hover,
 .edu:hover,
 .exp:hover,
-.project:hover{
+.project:hover,
+.skill-row:hover{
   border-color:rgba(255,138,61,0.6);
   box-shadow:
     0 0 0 1px rgba(255,138,61,0.12),
@@ -40,7 +41,7 @@ nav a:hover,
 
   padding-top:24px;
 
-  font-size:14px;
+  font-size:18px;
   color:var(--accent);
 
   opacity:0.85;

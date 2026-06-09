@@ -7,3 +7,7 @@ function setLang(lang){
     }
   });
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  setLang('ru');
+});

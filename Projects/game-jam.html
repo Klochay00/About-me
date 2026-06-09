@@ -250,6 +250,7 @@ section{
   justify-content:center;
 }
 
+
 /* STEP CARD */
 
 .step{
@@ -530,7 +531,20 @@ footer{
   text-align:center;
   color:var(--text);
   letter-spacing:-0.5px;
+  margin-top: 32px;
+  margin-bottom: 12px;
 }
+
+.subsection-desc {
+  text-align:center;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--muted);       /* Спокойный серый цвет текста */
+  margin-top: -8px;     /* Подтягиваем описание ближе к подзаголовку */
+  margin-bottom: 20px;  /* Отступ перед галереей картинок */
+}
+
+
 
 .Post-Jam-title{
   font-size:52px;
@@ -995,9 +1009,9 @@ footer{
       </h3>
 
       <p
-      data-en="Designed the first level layout in Illustrator and later implemented it directly in Unity."
-      data-ru="Создала первую схему уровня в Illustrator и позже реализовала её в Unity.">
-      Создала первую схему уровня в Illustrator и позже реализовала её в Unity.
+      data-en="Designed level layout in Illustrator and later implemented it directly in Unity."
+      data-ru="Создала схему уровня в Illustrator и позже реализовала её в Unity.">
+      Создала схему уровня в Illustrator и позже реализовала её в Unity.
       </p>
     </div>
 
@@ -1053,81 +1067,84 @@ footer{
 <!-- VISUAL DEVELOPMENT -->
 <section>
 
+  <!-- Главный заголовок секции отражает полный цикл создания -->
   <h2 class="section-title"
-  data-en="Visual Development"
-  data-ru="Визуальная разработка">
-  Визуальная разработка
+    data-en="Level Production Pipeline"
+    data-ru="Пайплайн разработки уровня">
+    Пайплайн разработки уровня
   </h2>
 
-  <!-- IDEATION -->
+  <!-- 01. IDEATION -->
   <h3 class="subsection-title"
-  data-en="Pre-production / Ideation"
-  data-ru="Препродакшн / Идеи">
-  Препродакшн / Идеи
+    data-en="01. Ideation & Pre-Production"
+    data-ru="01. Препродакшн и концепт-дизайн">
+    01. Препродакшн и концепт-дизайн
   </h3>
+  <p class="subsection-desc"
+    data-en="Developing core mechanics, gameplay loops, and visual references from scratch."
+    data-ru="Проектирование основных механик, игровых циклов и подбор визуальных референсов.">
+    Проектирование основных механик, игровых циклов и подбор визуальных референсов.
+  </p>
 
   <div class="gallery-grid">
-
     <div class="image-wrapper">
       <img src="../Assets/Jam/idea-board.png" alt="Idea board" onclick="openLightbox(this.src)">
     </div>
-
     <div class="image-wrapper">
       <img src="../Assets/Jam/reference-board.png" alt="Reference board" onclick="openLightbox(this.src)">
     </div>
-
   </div>
 
-  <!-- LEVEL DESIGN -->
+  <!-- 02. LEVEL DESIGN -->
   <h3 class="subsection-title"
-  data-en="Level Design (Illustrator)"
-  data-ru="Левел-дизайн (Illustrator)">
-  Левел-дизайн (Illustrator)
+    data-en="02. Level Blueprinting"
+    data-ru="02. Проектирование и схемы уровней">
+    02. Проектирование и схемы уровней
   </h3>
+  <p class="subsection-desc"
+    data-en="Drafting detailed 2D layouts in Adobe Illustrator to map out player flow, pacing, and visual guidance."
+    data-ru="Создание детальных 2D-схем в Adobe Illustrator для точной настройки геометрии, пейсинга и навигации игрока.">
+    Создание детальных 2D-схем в Adobe Illustrator для точной настройки геометрии, пейсинга и навигации игрока.
+  </p>
 
   <div class="gallery-grid">
-
     <div class="image-wrapper">
       <img src="../Assets/Jam/concept-blockout.png" alt="Concept blockout" onclick="openLightbox(this.src)">
     </div>
-
     <div class="image-wrapper">
       <img src="../Assets/Jam/final-blockout.png" alt="Final blockout" onclick="openLightbox(this.src)">
     </div>
-
   </div>
 
-  <!-- UNITY IMPLEMENTATION -->
+  <!-- 03. IMPLEMENTATION -->
   <h3 class="subsection-title"
-  data-en="In-Engine Implementation (Unity / Blender)"
-  data-ru="Реализация в Unity / Blender">
-  Реализация в Unity / Blender
+    data-en="03. 3D Modeling & In-Engine Assembly"
+    data-ru="03. 3D-моделирование и сборка сцены">
+    03. 3D-моделирование и сборка сцены
   </h3>
+  <p class="subsection-desc"
+    data-en="Modeling bespoke assets in Blender and building the fully interactive level inside Unity."
+    data-ru="Создание 3D-моделей в Blender и финальная сборка интерактивной игровой локации на движке Unity.">
+    Создание 3D-моделей в Blender и финальная сборка интерактивной игровой локации на движке Unity.
+  </p>
 
   <div class="gallery-grid">
-    
     <div class="image-wrapper">
       <img src="../Assets/Jam/unity1.png" alt="Blocking 1" onclick="openLightbox(this.src)">
     </div>
-
     <div class="image-wrapper">
       <img src="../Assets/Jam/unity2.png" alt="Blocking 2" onclick="openLightbox(this.src)">
     </div>
-
     <div class="image-wrapper">
       <img src="../Assets/Jam/BLENDER.png" alt="Gameplay 2" onclick="openLightbox(this.src)">
     </div>
-
     <div class="image-wrapper">
       <img src="../Assets/Jam/game2.png" alt="Gameplay 1" onclick="openLightbox(this.src)">
     </div>
-
-
-    
-
   </div>
 
 </section>
+
 
 <!-- LIGHTBOX -->
 
@@ -1284,81 +1301,70 @@ footer{
 
   <div class="contribution-grid">
 
+    <!-- 1. ANIMATION & ENVIRONMENT -->
     <div class="contribution">
-      <h3 data-en="Animations & Physics" data-ru="Анимации и физика">
-        Анимации и физика
+      <h3 data-en="Animation & Interactive Environment" data-ru="Анимации и интерактивное окружение">
+        Анимации и интерактивное окружение
       </h3>
-      <p data-en="Prepared destructible doors in Blender and configured explosion physics in Unity. Created a set of animations for moving obstacle objects and environmental elements (lasers, elevators, doorway)."
-         data-ru="Подготовила разрушаемые двери в Blender и настроила физику взрыва в Unity. Создала набор анимаций для подвижных объектов препятствий и элементов окружения (лазеры, лифты, проёмы).">
-         Подготовила разрушаемые двери в Blender и настроила физику взрыва в Unity. Создала набор анимаций для подвижных объектов препятствий и элементов окружения (лазеры, лифты, проёмы).
+      <p data-en="Designed destructible level elements in Blender and configured their destruction physics. Created a complete animation set for moving hazards, gates, elevators, and laser vents, synchronizing them with gameplay and player actions."
+         data-ru="Разработка разрушаемых элементов уровня в Blender и настройка физики их уничтожения. Создание комплекса анимаций для подвижных преград, ворот, лифтов и лазерных вентиляций с синхронизацией под геймплей и действия игрока.">
+         Разработка разрушаемых элементов уровня в Blender и настройка физики их уничтожения. Создание комплекса анимаций для подвижных преград, ворот, лифтов и лазерных вентиляций с синхронизацией под геймплей и действия игрока.
       </p>
     </div>
 
-
+    <!-- 2. MECHANICS & LOGIC -->
     <div class="contribution">
-
-      <h3
-      data-en="Terminal & Password Systems"
-      data-ru="Система терминалов и паролей">
-      Система терминалов и паролей
+      <h3 data-en="Gameplay Mechanics & Terminal Logic" data-ru="Игровые механики и логика терминалов">
+        Игровые механики и логика терминалов
       </h3>
-
-      <p
-      data-en="Created interactive terminals, keypad UI, password validation logic and player interaction flow with input control."
-      data-ru="Создала интерактивные терминалы, keypad UI, систему проверки паролей и управление вводом игрока.">
-      Создала интерактивные терминалы, keypad UI, систему проверки паролей и управление вводом игрока.
-      </p>
-
-    </div>
-
-
-    <div class="contribution">
-      <h3 data-en="Narrative AI System S.A.R.K." data-ru="Система ИИ S.A.R.K.">
-        Система ИИ S.A.R.K.
-      </h3>
-      <p data-en="Built a dialogue system triggered by player actions to display story events and dynamic messages from the AI."
-        data-ru="Создала систему диалогов, которая запускает сюжетные события и выводит сообщения от искусственного интеллекта в нужные моменты.">
-        Создала систему диалогов, которая запускает сюжетные события и выводит сообщения от искусственного интеллекта в нужные моменты.
+      <p data-en="Designed a system of interactive control panels and keypads. Configured gameplay logic for password verification, calendar dates, and quest progression, restricting electronic interaction exclusively to the character's human form."
+         data-ru="Проектирование системы интерактивных пультов и кодовых панелей. Настройка геймплейной логики проверки паролей, календарных дат и квестов с ограничением взаимодействия с электроникой — только в человеческой форме персонажа.">
+         Проектирование системы интерактивных пультов и кодовых панелей. Настройка геймплейной логики проверки паролей, календарных дат и квестов с ограничением взаимодействия с электроникой — только в человеческой форме персонажа.
       </p>
     </div>
 
-
+    <!-- 3. NARRATIVE AI SYSTEM -->
     <div class="contribution">
-      <h3 data-en="Narrative & Level Design" data-ru="Нарратив и левел-дизайн">
-        Нарратив и левел-дизайн
+      <h3 data-en="Narrative & S.A.R.C. AI System" data-ru="Нарратив и система ИИ S.A.R.C.">
+        Нарратив и система ИИ S.A.R.C.
       </h3>
-      <p data-en="Designed lab spaces to guide the player naturally, using lighting and environment details to tell a story and build tension."
-        data-ru="Спроектировала помещения лаборатории так, чтобы интуитивно вести игрока по сюжету, используя свет и детали окружения для создания напряжения.">
-        Спроектировала помещения лаборатории так, чтобы интуитивно вести игрока по сюжету, используя свет и детали окружения для создания напряжения.
+      <p data-en="Implemented a context-aware AI voice-line system that reacts to player progression. Configured dynamic dialogue prompts and punchy system logs to comment on player actions and drive the narrative forward."
+         data-ru="Реализация системы контекстных реплик искусственного интеллекта, реагирующей на прогресс игрока. Настройка динамического вывода диалогов и хлёстких системных логов для комментирования действий персонажа.">
+         Реализация системы контекстных реплик искусственного интеллекта, реагирующей на прогресс игрока. Настройка динамического вывода диалогов и хлёстких системных логов для комментирования действий персонажа.
       </p>
     </div>
 
-
+    <!-- 4. LEVEL ARCHITECTURE -->
     <div class="contribution">
-      <h3 data-en="Game Rules & Endings" data-ru="Финал и условия проигрыша">
-        Финал и условия проигрыша
+      <h3 data-en="Level Architecture & Navigation" data-ru="Архитектура уровня и навигация">
+        Архитектура уровня и навигация
       </h3>
-      <p data-en="Linked keycard access with escape routes, and built a game-over system with a countdown timer that ends the session if time runs out."
-        data-ru="Связала использование ключ-карт с путями побега, а также создала систему гейм-овера с таймером, который завершает игру, если время истекло.">
-        Связала использование ключ-карт с путями побега, а также создала систему гейм-овера с таймером, который завершает игру, если время истекло.
+      <p data-en="Designed a multi-tiered Sci-Fi complex featuring vertical gameplay, platforming zones, and hidden passages. Integrated navigation directly into the game world (Diegetic UI) via on-wall evacuation maps, using high-contrast lighting to intuitively guide the player."
+         data-ru="Проектирование многоуровневого Sci-Fi комплекса с вертикальным геймплеем, зонами платформинга и скрытыми проходами. Интеграция навигации напрямую в мир игры (Diegetic UI) через настенные планы эвакуации и контрастное освещение.">
+         Проектирование многоуровневого Sci-Fi комплекса с вертикальным геймплеем, зонами платформинга и скрытыми проходами. Интеграция навигации напрямую в мир игры (Diegetic UI) через настенные планы эвакуации и контрастное освещение.
       </p>
     </div>
 
-
+    <!-- 5. QUEST FLOW -->
     <div class="contribution">
-
-      <h3
-      data-en="Immersive Sound Design"
-      data-ru="Звуки для погружения">
-      Звуки для погружения
+      <h3 data-en="Quest Flow, Backtracking & Finale" data-ru="Структура квеста, бэктрекинг и финал">
+        Структура квеста, бэктрекинг и финал
       </h3>
-
-      <p
-      data-en="Added detailed sound effects to bring the laboratory to life: background alarms, elevator movement, heavy doors breaking, lever clicks, and the eerie appearance of the S.A.R.K. AI on screens."
-      data-ru="Оживила атмосферу лаборатории с помощью звуков: настроила фоновую тревогу, движение лифта, грохот ломающейся двери, щелчки рычагов и появление на экранах ИИ S.A.R.K.">
-      Оживила атмосферу лаборатории с помощью звуков: настроила фоновую тревогу, движение лифта, грохот ломающейся двери, щелчки рычагов и появление на экранах ИИ S.A.R.K.
+      <p data-en="Developed a complex player path featuring backtracking and level-altering geometry levers (raising a bridge platform). Linked keycard collection with a scripted elevator lockdown, creating a high-tension hazard course and survival timer on the way back."
+         data-ru="Проработка комплексного пути игрока с бэктрекингом и изменением геометрии уровня рычагами (подъем платформы-моста). Связывание сбора ключ-карт со сценарной блокировкой лифта и таймером выживания.">
+         Проработка комплексного пути игрока с бэктрекингом и изменением геометрии уровня рычагами (подъем платформы-моста). Связывание сбора ключ-карт со сценарной блокировкой лифта и таймером выживания.
       </p>
+    </div>
 
+    <!-- 6. AMBIENCE & OPTIMIZATION -->
+    <div class="contribution">
+      <h3 data-en="Ambience, Audio Design & Optimization" data-ru="Окружение, аудио-дизайн и оптимизация">
+        Окружение, аудио-дизайн и оптимизация
+      </h3>
+      <p data-en="Immersed players in the laboratory atmosphere: alarms, mechanical movements, door-smashing SFX, and heavy bear footsteps. Balanced WebGL graphics and memory to ensure a crystal-clear yet lightweight browser experience."
+         data-ru="Проработка атмосферы лаборатории: звуков тревоги, движения механизмов, разрушения дверей и тяжелых шагов медведя. Оптимизация баланса графики и памяти WebGL для плавного запуска уровня прямо в браузере.">
+         Проработка атмосферы лаборатории: звуков тревоги, движения механизмов, разрушения дверей и тяжелых шагов медведя. Оптимизация баланса графики и памяти WebGL для плавного запуска уровня прямо в браузере.
+      </p>
     </div>
 
   </div>
@@ -1370,6 +1376,18 @@ footer{
   </h3>
 
   <div class="gallery-grid">
+
+    <div class="image-wrapper">
+      <img src="../Assets/Jam/blocking.png"
+      alt="Post Jam Screenshot"
+      onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="image-wrapper">
+      <img src="../Assets/Jam/GAME10.png"
+      alt="Post Jam Screenshot"
+      onclick="openLightbox(this.src)">
+    </div>
 
     <div class="image-wrapper">
       <img src="../Assets/Jam/Screenshot1.png"
